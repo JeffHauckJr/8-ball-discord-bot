@@ -9,7 +9,9 @@ const responses = [
     "Probably not",
     "Unlikely",
     "Who knows",
-    "How should I know?"
+    "It's looking good",
+    "How should I know",
+    "Very Likely"
 ]
 
 client.on("ready", () => {
@@ -17,9 +19,9 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", (msg) => {
+  var randomResponse = responses[Math.floor(Math.random()*responses.length)];
   if (msg.content.includes('?')) {
-    var randomResponse = responses[Math.floor(Math.random()*responses.length)];
-    msg.channel.send(randomResponse)
+    msg.reply(randomResponse)
   }
 });
 
